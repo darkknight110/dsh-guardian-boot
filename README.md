@@ -7,18 +7,18 @@
 ## 安装
 
 ```bash
-# 先停掉正在运行的 dsh web
-dsh plugin --profile web add dsh-guardian-boot
+# 先停掉正在运行的 dsh web，然后钉版本安装
+dsh plugin --profile web add github:darkknight110/dsh-guardian-boot#v1.0.0
 dsh web
 ```
 
-也可以从 GitHub 装（推荐钉版本）：
+或从 [Releases](https://github.com/darkknight110/dsh-guardian-boot/releases) 下载 `.tgz`：
 
 ```bash
-dsh plugin --profile web add github:darkknight110/dsh-guardian-boot#v1.0.0
+dsh plugin --profile web add ./dsh-guardian-boot-1.0.0.tgz
 ```
 
-或从 Releases 下载 `.tgz` 后 `dsh plugin --profile web add ./dsh-guardian-boot-1.0.0.tgz`。
+> npm 包暂未发布；`dsh plugin add dsh-guardian-boot` 要等发版后才能用。
 
 装完重启 `dsh web`，刷新页面即可看到启动序列。卸载：
 
