@@ -1,0 +1,44 @@
+{
+  "name": "dsh-guardian-boot",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness 启动界面：Guardian 唤醒序列（tapIndex 注入 + iframe 隔离，零依赖）",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "docs"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "startup",
+    "splash",
+    "boot-animation"
+  ],
+  "license": "MIT",
+  "author": "darkknight110",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darkknight110/dsh-guardian-boot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/darkknight110/dsh-guardian-boot/issues"
+  },
+  "homepage": "https://github.com/darkknight110/dsh-guardian-boot#readme",
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

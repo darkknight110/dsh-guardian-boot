@@ -1,0 +1,5 @@
+# dsh-guardian-boot — 把 Host 半侧挂进当前 profile 的配置树。
+# Web 半侧不是 bundle：启动界面由 tapIndex 直接注入首页，所以这里只插一条。
+- insert:
+    - id: dsh-guardian-boot
+      name: dsh-guardian-boot
