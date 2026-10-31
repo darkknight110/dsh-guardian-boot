@@ -1,11 +1,12 @@
 {
   "name": "dsh-guardian-boot",
-  "version": "1.0.1",
-  "description": "DeepSeek Harness 启动界面：Guardian 唤醒序列（tapIndex 注入 + iframe 隔离，零依赖）",
+  "version": "1.0.2",
+  "description": "DeepSeek Harness 启动界面：Guardian 唤醒序列（Host 遮罩 + dsh.client + srcdoc 自包含隔离）",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
     ".": "./lib/index.js",
+    "./client": "./lib/client.js",
     "./package.json": "./package.json"
   },
   "files": [
@@ -39,6 +40,10 @@
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
     }
   }
 }

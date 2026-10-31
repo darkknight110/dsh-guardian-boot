@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Guardian client smoke</title>
+<style>
+  html, body { margin: 0; width: 100%; height: 100%; background: #101216; }
+  .app { padding: 48px; color: #c8d6da; font: 14px system-ui; }
+</style>
+<script>
+window.__GUARDIAN_ENTER_EVENT__ = false;
+window.addEventListener("guardian-boot:enter", () => {
+  window.__GUARDIAN_ENTER_EVENT__ = true;
+});
+window.__ModuleLoader__ = {
+  load(entry) {
+    const plugin = entry.factory();
+    window.__GUARDIAN_PLUGIN__ = plugin;
+    plugin.apply({});
+  }
+};
+</script>
+</head>
+<body>
+<div class="app">DeepSeek Harness mock session</div>
+<script src="../lib/client.js"></script>
+</body>
+</html>

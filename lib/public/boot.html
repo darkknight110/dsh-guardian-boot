@@ -77,7 +77,7 @@
 </style>
 </head>
 <body>
-<canvas id="guardian" width="1920" height="1080" aria-label="DeepSeek Harness 全息启动动画"></canvas>
+<canvas id="guardian" width="1920" height="1080" aria-label="DeepSeek Harness Guardian 启动动画"></canvas>
 
 <div class="controls" id="controls">
   <button id="audio" type="button" aria-pressed="false">AUDIO OFF</button>
@@ -1125,10 +1125,10 @@
     ctx.fillStyle = rgba(ICE, .28);
     spaced("DEEPSEEK HARNESS", 94, 86, 2.2);
     ctx.fillStyle = rgba(CYAN, .19);
-    spaced("GUARDIAN INTERFACE / R1", 94, 104, 1.7);
+    spaced("GUARDIAN INTERFACE / MK-IV", 94, 104, 1.7);
     ctx.textAlign = "right";
     ctx.fillStyle = rgba(ICE, .25);
-    spaced("CORE LINK: SECURE", W - 94, 86, 1.8, "right");
+    spaced("ARC LINK: SECURE", W - 94, 86, 1.8, "right");
     ctx.fillStyle = rgba(GOLD, .39);
     spaced("CORE // STANDBY", W - 94, 104, 1.8, "right");
     ctx.textAlign = "left";
@@ -1905,27 +1905,17 @@
     };
   };
 
-  let rafId = 0;
-  let stopped = false;
-
   function frame(now) {
-    if (stopped) return;
     if (document.hidden) {
-      rafId = requestAnimationFrame(frame);
+      requestAnimationFrame(frame);
       return;
     }
     const raw = seekTime !== null ? seekTime : (now - startAt) / 1000;
     render(clamp(raw, 0, DURATION), raw);
-    /* 终幕之后：嵌入模式再撑 6 秒待命态就收手，不常驻烧 GPU。 */
-    if (EMBED && raw > DURATION + 6) {
-      stopped = true;
-      postToHost("guardian:idle");
-      return;
-    }
-    rafId = requestAnimationFrame(frame);
+    requestAnimationFrame(frame);
   }
 
-  rafId = requestAnimationFrame(frame);
+  requestAnimationFrame(frame);
   postToHost("guardian:ready");
   attemptAutoAudio();
 })();
