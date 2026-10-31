@@ -1,6 +1,6 @@
 {
   "name": "dsh-guardian-boot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "DeepSeek Harness 启动界面：Guardian 唤醒序列（tapIndex 注入 + iframe 隔离，零依赖）",
   "type": "module",
   "main": "lib/index.js",
